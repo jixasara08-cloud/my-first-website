@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBSE Cafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff8f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #3b2416;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 28px;
+      color: #ffcc99;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc99;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 40px;
+      background: linear-gradient(to right, #fff3e6, #ffe8cc);
+      gap: 30px;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h2 {
+      font-size: 42px;
+      color: #3b2416;
+      margin-bottom: 15px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .hero-text button {
+      padding: 12px 24px;
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero-text button:hover {
+      background-color: #6f472c;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Section title */
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      color: #3b2416;
+      margin-bottom: 30px;
+    }
+
+    /* About Section */
+    #about {
+      padding: 60px 40px;
+      background-color: white;
+    }
+
+      .about-text {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }  
+
+    .about-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+     }
+     
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    /* Menu Section */
+    #menu {
+      padding: 60px 40px;
+      background-color: #fff3e6;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .about-text {
+      flex: 2;
+      min-width: 280px;
+      font-size: 18px;
+      color: rgb(23, 22, 23);
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+    }
+
+    .about-image {
+      background-color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .menu-item h3 {
+      font-size: 24px;
+      color: #3b2416;
+      margin-bottom: 10px;
+    }
+
+    .menu-item p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #8b5e3c;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 60px 40px;
+      background-color: white;
+      text-align: center;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      background: #fff8f2;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .contact-box p {
+      font-size: 18px;
+      margin: 12px 0;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3b2416;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h2 {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>CBSE CAFE</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>Welcome to CBSE Cafe ☕</h2>
+      <p>Fresh coffee, tasty snacks, and a cozy place to relax with friends.</p>
+      <button>Visit Us</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="logo2.jpg" alt="CBSE Cafe Main Image">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Our Cafe</h2>
+
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          Welcome to CBSE Cafe, your perfect place for delicious coffee, refreshing shakes,
+          and tasty burgers. We created this cafe to give our customers a warm and relaxing experience.
+        </p>
+
+        <p>
+          We use quality ingredients and serve every item with care. Whether you come to study,
+          meet friends, or simply enjoy a peaceful time, CBSE Cafe is always ready to welcome you.
+        </p>
+
+        <p> 
+          good luxury,warm and cozy interior designed for a,
+          relexing coffee experience.
+        </p>
+
+        <p></p><strong>Address:</strong> Singhpur Chouraha, Kandeli, Narsinghpur (M.P.) 487001</p>
+      </div>
+
+      <div class="about-image">
+        <img src="main1.jpg" alt="Cafe Interior"> 
+        <img src="interior.jpg" alt="interior">
+        <img src="all interior.jpg" alt="interior">
+      </div>
+
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu">
+    <h2 class="section-title">Our Special Menu</h2>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="coffe.jpg" alt="Espresso">
+        <h3>Espresso</h3>
+        <p>Rich, bold and full of flavor for true coffee lovers.</p>
+        <div class="price">₹100</div>
+      </div>
+
+      <div class="menu-item">
+        <img src="shake.jpg" alt="Shake">
+        <h3>Cold Shake</h3>
+        <p>Refreshing and creamy shakes made with delicious flavors.</p>
+        <div class="price">₹120</div>
+      </div>
+
+      <div class="menu-item">
+        <img src="burger.jpg" alt="Burger">
+        <h3>Burger</h3>
+        <p>Soft buns, tasty fillings, and fresh ingredients in every bite.</p>
+        <div class="price">₹150</div>
+      </div>
+
+
+    <div class='menu-item'> 
+    <img src='pizza.jpg' alt="pizza"> 
+    <h3>pizza</h3>
+    <p>yummy and tasty 
+    <div class='price'>₹100</div>
+  </div>
+
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-box">
+      <p><strong>Cafe Name:</strong> CBSE Cafe</p>
+      <p><strong>Address:</strong> Singhpur Chouraha, Kandeli, Narsinghpur (M.P.) 487001</p>
+      <p><strong>Phone:</strong> +91 7947126731</p>
+      <p><strong>Email:</strong> cbsecafe@gmail.com</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 CBSE Cafe | Made with ❤️</p>
+  </footer>
+
+</body>
+</html>
